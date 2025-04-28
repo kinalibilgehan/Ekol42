@@ -19,17 +19,21 @@ int	ft_ultimate_range(int **range, int min, int max)
 	int	i;
 	
 	if (min >= max)
+	{
 		*range = NULL;
 		return (0);
+	}
 	size = max -min;
 	numbers = (int*)malloc(size * sizeof(int));
-	if (numbers == NULL)
-		return (NULL);
+	if (numbers == NULL){
+		return (-1);
+	}
+    *range=numbers;
 	i = 0;
 	while (min + i < max)
 	{
 		numbers[i] = min + i;
 		i++;
-	}
+	} 
 	return (size);
 }
